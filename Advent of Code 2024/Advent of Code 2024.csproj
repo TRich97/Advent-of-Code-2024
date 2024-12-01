@@ -43,19 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Day 1\Models\HistoriansList.cs" />
+    <Compile Include="Day1\Logic\Comparer.cs" />
+    <Compile Include="Day1\Models\HistoriansList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Day 1\Logic\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Day 1\Input\Input1.txt" />
-    <Content Include="Day 1\Input\Input2.txt" />
+    <Content Include="Day1\Input\Example\Input1.txt" />
+    <Content Include="Day1\Input\Example\Input2.txt" />
+    <Content Include="Day1\Input\Input1.txt" />
+    <Content Include="Day1\Input\Input2.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
