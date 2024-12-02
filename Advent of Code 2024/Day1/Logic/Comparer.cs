@@ -1,8 +1,6 @@
 ﻿using AdventofCode2024.Day1.Models;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Runtime.CompilerServices;
 
 namespace AdventofCode2024.Day1.Logic
 {
