@@ -1,4 +1,4 @@
-﻿namespace Day2.Data
+﻿namespace Day2.Data.Part1
 {
     public class Reports
     {
@@ -6,12 +6,12 @@
 
         public Reports(List<int> reports)
         {
-            this._reports = reports;
+            _reports = reports;
         }
 
-        public bool isSafe()
+        public bool IsSafe()
         {
-            bool increasing = (_reports[0] > _reports[1]);
+            bool increasing = _reports[0] < _reports[1];
             int difference = 0;
             for (int count = 1; count < _reports.Count; count++)
             {
@@ -19,12 +19,13 @@
 
                 if (difference > 3 || difference < 1) { return false; }
 
-                if ((_reports[count - 1] > _reports[count]) != increasing)
+                if (_reports[count - 1] < _reports[count] != increasing)
                 {
                     return false;
                 }
             }
             return true;
         }
+
     }
 }
