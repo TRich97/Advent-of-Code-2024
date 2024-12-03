@@ -15,11 +15,9 @@ namespace Day2.Data.Part2
         {
             bool increasing = IsIncreasing(_reports[0], _reports[1]);
             int difference = 0;
-            int strikeLimit = 2;
-            int strikeCount = 0;
             int counter = 1;
 
-            while( counter < _reports.Count && strikeCount < strikeLimit)
+            while( counter < _reports.Count)
             {
                 difference = Math.Abs(_reports[counter] - _reports[counter - 1]);
 
@@ -34,7 +32,7 @@ namespace Day2.Data.Part2
                 }
                 counter++;
             }
-            return strikeCount < 2;
+            return true;
         }
 
         private bool Dampener(int pos1)
