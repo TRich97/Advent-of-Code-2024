@@ -1,4 +1,7 @@
-﻿namespace Day2.Data.Part2
+﻿using Day2.Data.Part1;
+using System.Collections.Generic;
+
+namespace Day2.Data.Part2
 {
     public class DampReports
     {
@@ -20,30 +23,48 @@
             {
                 difference = Math.Abs(_reports[counter] - _reports[counter - 1]);
 
-                if (difference > 3 || difference < 1) 
-                { 
-                    _reports.RemoveAt(counter);
-                    if (counter == 1)
-                    {
-                        increasing = IsIncreasing(_reports[0], _reports[1]);
-                    }
-                    strikeCount ++;
-                    continue;
+                if (difference > 3 || difference < 1)
+                {
+                    return Dampener(counter);                   
                 }
 
                 if (_reports[counter - 1] < _reports[counter] != increasing)
                 {
-                    _reports.RemoveAt(counter);
-                    if (counter == 1)
-                    {
-                        increasing = IsIncreasing(_reports[0], _reports[1]);
-                    }
-                    strikeCount ++;
-                    continue;
+                    return Dampener(counter);                   
                 }
                 counter++;
             }
             return strikeCount < 2;
+        }
+
+        private bool Dampener(int pos1)
+        {
+            int pos2 = pos1 - 1;
+            List<int> test1 = new List<int>(_reports);
+            
+            test1.RemoveAt(pos1);
+            List<int> test2 = new List<int>(_reports);
+            test2.RemoveAt(pos2);
+
+            Reports possibility1 = new Reports(test1);
+            Reports possibility2 = new Reports(test2);
+
+            if (possibility1.IsSafe())
+            {
+                _reports.RemoveAt(pos1);
+                return true;
+            }
+            else if (possibility2.IsSafe())
+            {
+                _reports.RemoveAt(pos2);
+                return true;
+            }
+            else
+            {
+                //all hope is lost
+                return false;
+            }
+
         }
 
         private bool IsIncreasing(int start, int second)
