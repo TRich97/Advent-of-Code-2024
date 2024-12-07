@@ -12,7 +12,9 @@ namespace AdventofCode2024
             int answer = Comparer.Solve();
             watch.Stop();
             Console.WriteLine($"Merry christmas, your answer is: {answer}");
-            Console.WriteLine($"complete in {watch.Elapsed} milliseconds");
+
+            int answerPart2 = Comparer.SolvePart2();
+            Console.WriteLine($"Merry christmas, your second answer is: {answerPart2}");
             Console.ReadLine();
         }
     }
