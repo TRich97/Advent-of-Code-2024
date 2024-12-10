@@ -15,7 +15,6 @@
 
         private void PopulateWordSearch(string path)
         {
-            //2332 is too low
             string[] lines = File.ReadAllLines(path);
             wordSearch = new char[lines.First().Length, lines.Count()];
             int rowCount = 0;
